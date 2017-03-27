@@ -60,19 +60,18 @@ function deleteUser(index) {
 }
 
 function editUser(index){
-    console.log(index);
     $('.mdl-textfield').addClass('is-dirty');
-    document.getElementById('firstName').value = table.rows[index+1].cells[0].innerHTML;
-    document.getElementById('lastName').value = table.rows[index+1].cells[1].innerHTML;
-    document.getElementById('phone').value = table.rows[index+1].cells[2].innerHTML;
-    document.getElementById('streetAddress').value = document.getElementById('' + (index+1)).innerHTML.split(',')[0];
-    document.getElementById('city').value = document.getElementById('' + (index+1)).innerHTML.split(',')[1].trim();
-    document.getElementById('addUserButton').value = 'Save';
-    document.getElementById('contactId').innerHTML = 'Edit contact:';
+    $('#firstName').val(table.rows[index+1].cells[0].innerHTML);
+    $('#lastName').val(table.rows[index+1].cells[1].innerHTML);
+    $('#phone').val(table.rows[index+1].cells[2].innerHTML);
+    $('#streetAddress').val($('#' + (index+1)).html().split(',')[0]);
+    $('#city').val($('#' + (index+1)).html().split(',')[1].trim());
+    $('#addUserButton').val('Save');
+    $('#contactId').html('Edit contact:');
     document.getElementById('addUserButton').onclick = function () {
-        var firstName = document.getElementById('firstName').value;
-        var lastName = document.getElementById('lastName').value;
-        var phone = document.getElementById('phone').value;
+        var firstName = $('#firstName').val();
+        var lastName = $('#lastName').val();
+        var phone = $('#phone').val();
         var streetAddress = $('#streetAddress').val();
         var city = $('#city').val();
         var contact = JSON.stringify({"firstName": firstName, "lastName" : lastName, "phone": phone, "streetAddress": streetAddress, "city":city});
