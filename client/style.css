@@ -1,0 +1,10 @@
+.mdl-layout__content {
+    padding: 24px;
+    width: 100%;
+}
+#contactsTable{
+    display: table;
+}
+#users{
+    margin-right: 0;
+}
